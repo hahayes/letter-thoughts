@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>letter thoughts</title>
+        <style type="text/css">
+            body { background: #eaeaea; }
+            img { width: 918px; height: 628px; }
+
+            #thing { width: 950px;
+                margin-left: auto;
+                margin-right: auto;
+                background: white;
+                padding-top: 5px;
+                padding-bottom: 10px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            div.box {
+                width: 918px;
+                height: 628px;
+                background: #f6f3a1;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            div.l {
+                width: 15px;
+                height: 15px;
+                line-height: 15px;
+                font-size: 14px;
+                border: solid 1px #a1a4f6;
+                float: left;
+                text-align: center;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+        </style>
+        <script type="text/javascript"
+            src="https://code.jquery.com/jquery-1.11.1.min.js">
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $.getJSON( "data.json", function( data ) {
+                    $.each(data, function(val) {
+                        str = data[val];
+                        for(k in str){
+                            $("#container").append("<div class='l'>" + str[k] + "</div>");
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+<body>
+    <div id="thing">
+    <h1>letter thoughts</h1>
+    <div id="container" class="box">
+    </div>
+
+    <h2>about</h2>
+
+    <div class="box" style="height: auto;">
+        <p>I was feeling quite stressed, and I was in possession of graph
+        paper. So I started writing down letters, randomly, but in order, in
+        each box. But it quickly became boring and I was having trouble
+        randomly choosing letters. So then I started writing out the alphabet
+        in order, at "random" positions in the grid. This was fun, and I wrote
+        the alphabet down forwards and backwards several times.</p>
+
+        <p>However, this also became boring. Then I realised I could write
+        down ideas that were running around in my head; things that I didn't
+        really want to think about, but was thinking about. It was actually
+        quite relaxing to be able to express these thoughts on paper, but not
+        in a way that anyone else could recognise.</p>
+
+        <p>So now this grid exists, containing a whole bunch of letters in no
+        particular order, and then a whole bunch that meant something to me,
+        but are now completely unrecoverable.</p>
+    </div>
+
+
+    <h2>physical</h2>
+    <div class="box"> <img src="wip-1.jpg" /> </div>
+    <div class="box"> <img src="wip-2.jpg" /> </div>
+    <div class="box"> <img src="finished.jpg" /> </div>
+    <div style='text-align: right; padding: 5px;'>&#1606;</div>
+    </div>
+</body>
+</html>
