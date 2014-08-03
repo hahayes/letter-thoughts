@@ -35,6 +35,10 @@
                 vertical-align: middle;
             }
 
+            div.highlight {
+                background: #ff758b;
+            }
+
         </style>
         <script type="text/javascript"
             src="https://code.jquery.com/jquery-1.11.1.min.js">
@@ -50,6 +54,24 @@
                     });
                 });
             });
+
+function findThought (thought) {
+    // This is very slow. It also keeps choosing new letters as you
+    // type a word, which is maybe not ideal.
+    var allHighlighted = $("#container div.highlight");
+    for(idx in allHighlighted){
+        $(allHighlighted[idx]).removeClass("highlight");
+    }
+
+    for(idx in thought){
+        var letter = thought[idx];
+        var candidates = $("#container div:contains(" + letter + ")").filter( function () {
+            return $(this).text() == letter;
+        } );
+
+        $(candidates[Math.floor(Math.random() * candidates.length)]).addClass("highlight");
+    }
+}
         </script>
     </head>
 <body>
@@ -57,6 +79,10 @@
     <h1>letter thoughts</h1>
     <div id="container" class="box">
     </div>
+
+    <p>Find a thought:
+        <input type="text" id="look" onkeyup="findThought($('#look').val());" />
+    </p>
 
     <h2>about</h2>
 
